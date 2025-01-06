@@ -1,0 +1,6 @@
+[submodule "page"]
+	path = page
+	url = https://github.com/vcoscrato/page.git
+[submodule "routine"]
+	path = routine
+	url = https://github.com/vcoscrato/routine.git

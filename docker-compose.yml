@@ -1,0 +1,51 @@
+services:
+  routine:
+    build: ./routine_app
+    container_name: routine
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - SUPABASE_URL=https://nkselcgbkfhwnjkjegiw.supabase.co
+      - SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5rc2VsY2dia2Zod25qa2plZ2l3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU0MDU0NzEsImV4cCI6MjA1MDk4MTQ3MX0.tknnq5z3MY9wxaOlSzR9tyClaJ2Ci5NihQQrIj1WnNI
+    networks:
+      - custom_network
+
+  cv:
+    build: ./cv  # Path to the Jekyll site's Dockerfile
+    container_name: cv
+    restart: unless-stopped
+    ports:
+      - "4000:4000"  # Expose port 4000
+    volumes:
+      - ./cv:/usr/src/app  # Sync local files for live development
+    environment:
+      - JEKYLL_ENV=production
+    networks:
+      - custom_network
+
+  page:
+    build: ./page 
+    container_name: page
+    restart: unless-stopped
+    ports:
+      - "1313:1313"  # Expose port 1313
+    volumes:
+      - ~/hugo_cache:/tmp/hugo_cache # For faster builds
+    networks:
+      - custom_network
+
+  tunnel:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=eyJhIjoiYzRjNjNlMjUwYzI3NjNhNmU0YWUwZTY4MTZlYjI0MDAiLCJ0IjoiYTMyMTE4YjYtM2EyNy00YjAwLTg3NjUtOTQwZTYyNTJlY2FiIiwicyI6Ik1XUTRORGt3T0RBdE5XRm1NUzAwWlRKaExUbG1PREl0WkRoa1pERmtaV1JpTXpRNCJ9
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge
+  
