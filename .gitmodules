@@ -4,3 +4,6 @@
 [submodule "routine"]
 	path = routine
 	url = https://github.com/vcoscrato/routine.git
+[submodule "cv"]
+	path = cv
+	url = https://github.com/vcoscrato/cv.git

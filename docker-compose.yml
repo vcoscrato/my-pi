@@ -1,6 +1,6 @@
 services:
   routine:
-    build: ./routine_app
+    build: ./routine
     container_name: routine
     restart: unless-stopped
     ports:
