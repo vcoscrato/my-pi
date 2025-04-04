@@ -1,9 +1,12 @@
 [submodule "page"]
 	path = page
-	url = https://github.com/vcoscrato/page.git
+	url = git@github.com:vcoscrato/page.git
 [submodule "routine"]
 	path = routine
-	url = https://github.com/vcoscrato/routine.git
+	url = git@github.com:vcoscrato/routine.git
 [submodule "cv"]
 	path = cv
-	url = https://github.com/vcoscrato/cv.git
+	url = git@github.com:vcoscrato/cv.git
+[submodule "consultorio"]
+	path = consultorio
+	url = git@github.com:vcoscrato/consultorio.git
