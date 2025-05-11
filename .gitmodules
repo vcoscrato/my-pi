@@ -10,3 +10,6 @@
 [submodule "consultorio"]
 	path = consultorio
 	url = git@github.com:vcoscrato/consultorio.git
+[submodule "finances"]
+	path = finances
+	url = git@github.com:vcoscrato/finances.git
