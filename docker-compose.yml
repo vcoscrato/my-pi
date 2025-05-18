@@ -43,6 +43,15 @@ services:
     networks:
       - custom_network
 
+  finances:
+    build: ./finances
+    container_name: finances
+    restart: unless-stopped
+    ports: 
+      - "8001:8000"
+    networks:
+      - custom_network
+
 networks:
   custom_network:
     driver: bridge
